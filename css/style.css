@@ -1,0 +1,272 @@
+h1{
+    display: flex;
+    justify-content: center;
+    color: #333;
+    height: 90px;
+    font-size: 40px;
+    padding-top: 37px;
+}
+
+
+
+.pagebreak{
+    display: flex;
+    justify-content: center;
+    margin-left: 3.5%;
+    margin-right: 3%;
+    height: 3px;
+    width: 93%;
+    background-color: #333;
+    color: #333;
+}
+
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    padding: 20px 20px;
+    height: 8vh;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    margin-left: 40px;
+  }
+  
+  .links {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .links li {
+    margin-right: 50px; 
+  }
+  
+  .links li:last-child {
+    margin-right: 10px; 
+  }
+  
+  .links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .cart {
+    width: 30px; 
+    height: auto;
+  }
+  .artwork{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    
+  }
+  #dragon{
+    
+    width: 676px;
+    height: 485px;
+  }
+  #demon{
+    height: 666px;
+    width: 522px;
+  }
+  #vulture{
+    height: 672px;
+    width: 672px;
+  }
+  #city{
+    height: 672px;
+    width: 672px;
+  }
+  .items{
+    Display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  h3{
+    font-size: 2.5vh;
+  }
+  span{
+    margin-top: 10px;
+    font-size: 2vh;
+  }
+  button{
+    margin-top: 3.5vh;
+    background: #333;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 8px;
+    margin-left: 5px;
+    box-shadow: 0 0 40px #333;
+    color: #fff;
+    letter-spacing: .7px;
+    height: 3em;
+    width: 10em;
+  }
+  button:hover{
+    background: #555;
+    box-shadow: 0 0 40px #555;
+  }
+  .nav-links li a:hover{
+    color: #555;
+  }
+
+footer{
+  height: 250px;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fa {
+  height: 10px;
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+}
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+.fa-instagram{
+  background: linear-gradient(purple, orange);
+  color: white;
+}
+
+/* mobile media query */
+@media screen and (max-width: 768px) {
+  .nav {
+      padding: 10px 20px;
+      height: auto;
+  }
+
+  .links {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+  }
+
+  .links li {
+      margin: 10px 0;
+  }
+
+  .logo {
+      margin-left: 0;
+      margin-bottom: 10px;
+  }
+
+  .items {
+      margin-bottom: 50px;
+  }
+
+  h1 {
+      font-size: 30px;
+      padding-top: 20px;
+  }
+
+  .pagebreak {
+      margin: 0;
+      width: 100%;
+  }
+
+  #dragon, #demon, #vulture, #city {
+      width: 100%;
+      height: auto;
+  }
+
+  h3 {
+      font-size: 20px;
+  }
+
+  span {
+      font-size: 16px;
+  }
+
+  button {
+      margin-top: 20px;
+      font-size: 14px;
+  }
+
+  footer {
+      height: auto;
+      padding: 20px;
+  }
+
+  .fa {
+      font-size: 20px;
+      padding: 10px;
+  }
+}
+
+/* tablets */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .nav {
+      padding: 15px 20px;
+  }
+
+  .logo {
+      font-size: 1.5rem;
+  }
+
+  .items {
+      margin-bottom: 75px;
+  }
+
+  h1 {
+      font-size: 36px;
+      padding-top: 30px;
+  }
+
+  h3 {
+      font-size: 24px;
+  }
+
+  span {
+      font-size: 18px;
+  }
+
+  button {
+      margin-top: 25px;
+      font-size: 16px;
+  }
+
+  footer {
+      height: auto;
+      padding: 30px;
+  }
+
+  .fa {
+      font-size: 24px;
+      padding: 15px;
+  }
+}
+
+a:is(:link, :active, :visited).nav-links{
+  color: #555;
+}
