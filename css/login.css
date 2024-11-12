@@ -6,7 +6,7 @@ body{
     align-items: center;
     min-height: 100vh;
     background: url(../images/white-canyon-6c5d2a4c.jpg);
-    background-size: 100%;
+    background-size: cover;
     background-repeat: repeat;
     position: relative;
 }
