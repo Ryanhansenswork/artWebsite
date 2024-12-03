@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.util.Base64;
 
 @Entity
 public class Products 
@@ -12,14 +13,14 @@ public class Products
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer product_id;
-    @Column
+    @Column(name = "product_name")
     private String product_name;
-    @Column
-    private String product_description;
+    @Column(name = "product_description")
+    private String productDescription;
     @Column
     private double price;
     //images stored in mysql as BLOB!!!
-    @Column
+    @Column(name = "image")
     private byte[] image;
 
 
@@ -40,11 +41,11 @@ public class Products
     }
     //productdesc
      public String getProductDescription() {
-        return product_description;
+        return productDescription;
     }
 
-    public void setProductDescription(String product_description) {
-        this.product_description = product_description;
+    public void setProductDescription(String productDescription) {
+        this.productDescription = productDescription;
     }
 
 
@@ -56,8 +57,11 @@ public class Products
         this.price = price;
     }
 
-    public byte[] getImage() {
-        return image;
+    public String getImageBase64() {
+        if (image != null) {
+            return Base64.getEncoder().encodeToString(image);
+        }
+        return null; 
     }
 
     public void setImage(byte[] image) {

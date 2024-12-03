@@ -23,8 +23,11 @@ public class ApiControllers
     }
     @GetMapping("/products")
     public List<Products> getProducts(){
-        return productsRepo.findAll();
+        List<Products> products = productsRepo.findAll();
+        return products;
+        //return productsRepo.findAll();
     }
+    
    /*  @GetMapping("/products")
 public List<Products> getProducts() {
     List<Products> products = productsRepo.findAll();

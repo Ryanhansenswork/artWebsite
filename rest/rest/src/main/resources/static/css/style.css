@@ -7,6 +7,15 @@ h1{
     padding-top: 37px;
 }
 
+#product-list {
+  list-style-type: none !important;
+  padding: 0;
+  margin: 0;
+}
+
+#product-list li {
+  list-style-type: none !important;  /* Ensure no bullet on each list item */
+}
 
 
 .pagebreak{
@@ -69,20 +78,26 @@ h1{
     margin-top: 30px;
     
   }
-  #dragon{
+  #product-image-0{
     
     width: 676px;
     height: 485px;
+    margin-top: 28px;
+  
   }
-  #demon{
+  #product-image-1{
     height: 666px;
     width: 522px;
   }
-  #vulture{
+  #product-image-2{
     height: 672px;
     width: 672px;
   }
-  #city{
+  #product-image-3{
+    height: 666px;
+    width: 522px;
+  }
+  #product-image-4{
     height: 672px;
     width: 672px;
   }
