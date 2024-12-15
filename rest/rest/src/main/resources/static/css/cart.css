@@ -37,6 +37,7 @@ td a{
     color: #333;
     font-size: 12px;
 }
+
 .total-price{
     display: flex;
     justify-content: flex-end;
@@ -47,6 +48,7 @@ td a{
     width: 100%;
     max-width: 340px;
 }
+
 td:last-child{
     text-align: right;
 }
@@ -97,4 +99,7 @@ footer{
   .fa-instagram{
     background: linear-gradient(purple, orange);
     color: white;
+  }
+  #checkout{
+    background: #666;
   }

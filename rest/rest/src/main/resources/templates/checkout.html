@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/checkout.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="logo">RYAN HANSEN ART</div>
+        <ul class="links">
+            <li><a href="index.html">Originals</a></li>
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </nav>
+
+    <h1>Checkout</h1>
+
+    <div id="checkout-items"></div>
+
+
+    <div class="form-container">
+        <h2 class="form-title">Shipping Address</h2>
+        <div class="input-line">
+            <label for="name">First Name</label>
+            <input type="text" name="name" id="firstname" placeholder="First Name">
+        </div>
+        <div class="input-line">
+            <label for="name">Last Name</label>
+            <input type="text" name="name" id="lastname" placeholder="Last Name">
+        </div>
+        <div class="input-line">
+            <label for="name">Street Address</label>
+            <input type="text" name="name" id="streetaddress" placeholder="5423 kennedy Street">
+        </div>
+        <div class="input-line">
+            <label for="name">City</label>
+            <input type="text" name="name" id="city" placeholder="Miami">
+        </div>
+        <div class="input-line">
+            <label for="name">State</label>
+            <input type="text" name="name" id="state" placeholder="Florida">
+        </div>
+        <div class="input-line">
+            <label for="name">Zip/Postal Code</label>
+            <input type="text" name="name" id="postalcode" placeholder="33101">
+        </div>
+        <div class="input-line">
+            <label for="name">email address</label>
+            <input type="email" name="name" id="email" placeholder="knight@gmail.com">
+        </div>
+            
+        <h2 class="form-title">Payment Details</h2>
+        <form action="" class="checkout-form">
+            <div class="input-line">
+                <label for="name">Name on card</label>
+                <input type="text" name="name" id="name" placeholder="Your Name">
+            </div>
+            <div class="input-line">
+                <label for="name">Card number</label>
+                <input type="text" name="name" id="cardnumber" placeholder="1111-2222-3333-4444">
+            </div>
+            <div class="input-container">
+                <div class="input-line">
+                    <label for="name">Expiring Date</label>
+                    <input type="text" name="name" id="expiredate" placeholder="09-21">
+                </div>
+                <div class="input-line">
+                    <label for="name">CVC</label>
+                    <input type="text" name="name" id="cvc" placeholder="***">
+                </div>
+            </div>
+            
+        <button id="confirm-order-btn">Complete Purchase</button>
+
+    <!--<footer>
+        <span>
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-twitter"></a>
+            <a href="#" class="fa fa-instagram"></a>
+        </span>
+        <span> Ryan Hansen Art   &#8226   New Jersey, USA   &#8226   ryanhanseng@gmail.com</span>
+    </footer>-->
+
+    <script>
+        const checkoutItemsDiv = document.getElementById('checkout-items');
+        const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
+
+        if (cartData.length === 0) {
+            checkoutItemsDiv.innerHTML = '<p>No items to checkout.</p>';
+        } else {
+            cartData.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.innerHTML = `
+                    <div class="checkout-item">
+                        <h3>${item.name}</h3>
+                        <span>Price: $${item.price}</span>
+                    </div>
+                `;
+                checkoutItemsDiv.appendChild(itemDiv);
+            });
+        }
+
+        document.getElementById('confirm-order-btn').addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent form submission
+        
+        // Gather form data
+        const orderData = {
+            firstname: document.getElementById('firstname').value, // Replace with proper ids
+            lastname: document.getElementById('lastname').value, 
+            email: document.getElementById('email').value, 
+            productname: cartData.map(item => item.name).join(", "), // Combine all product names
+            price: cartData.reduce((sum, item) => sum + item.price, 0), // Sum of all prices
+            streetaddress: document.getElementById('streetaddress').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value,
+            postalcode: document.getElementById('postalcode').value
+        };
+
+        // Send the order data to the backend API
+        fetch('/orders/store', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData) // Send data as JSON
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Order Confirmed!');
+            localStorage.removeItem('cartData'); // Clear the cart
+            window.location.href = '/index.html'; // Redirect to homepage
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('There was an issue completing your order. Please try again.');
+        });
+        // Save to localStorage (append to existing orders)
+        const existingOrders = JSON.parse(localStorage.getItem('orders')) || [];
+        existingOrders.push(orderData);
+        localStorage.setItem('orders', JSON.stringify(existingOrders));
+    });
+    </script>
+</body>
+</html>

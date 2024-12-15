@@ -17,8 +17,8 @@
               <li><a href="index.html">Originals</a></li>
               <!--<li><a href="prints.html">Prints</a></li>-->
               <!--<li><a href="about.html">About</a></li>-->
-              <li><a href="login.html">Login</a></li>
-              <li><a href="cart.html"><img class="cart" src="/images/cart.jpg" alt=""></a></li>
+              <li><a href="/login">Login</a></li>
+              <li><a href="/cart"><img class="cart" src="/images/cart.jpg" alt=""></a></li>
               </ul>
     </nav>
     <h1>
@@ -78,7 +78,7 @@
         </span>
         <span> Ryan Hansen Art   &#8226   New Jersey, USA   &#8226   ryanhanseng@gmail.com</span>
     </footer>
-    <script>
+   <!--- <script>
         // Fetch from products table(dynamic)
         fetch('/products')
             .then(response => response.json())
@@ -105,10 +105,57 @@
                             <h3 class="yomama">${product.productName}</h3>
                             <span>$${product.price}</span>
                             <span>${product.productDescription}</span>
-                            <button type="button">Add To Cart</button>
+                            <button type="button" class="add-to-cart" data-product-id="${product.id}">Add To Cart</button>
                         </section>`;
                     productList.appendChild(listItem);
                 });*/
+            })
+            .catch(error => console.error('Error fetching products:', error));
+
+
+
+    </script>-->
+    <script>
+        // Fetch from products table dynamically
+        fetch('/products')
+            .then(response => response.json())
+            .then(data => {
+                const productList = document.getElementById('product-list');
+                data.forEach((product, index) => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `
+                    <section class="items">
+                        <img id="product-image-${index}" src="data:image/jpeg;base64,${product.imageBase64}" alt="${product.productName}" />
+                        <h3 class="yomama">${product.productName}</h3>
+                        <span class="price">$${product.price}</span>
+                        <span>${product.productDescription}</span>
+                        <button type="button" class="add-to-cart" data-product='${JSON.stringify(product)}'>Add To Cart</button>
+                    </section>`;
+                    productList.appendChild(listItem);
+                });
+    
+                // Add to cart button functionality
+                const cartButtons = document.querySelectorAll('.add-to-cart');
+                cartButtons.forEach(button => {
+                    button.addEventListener('click', (event) => {
+                        const productData = JSON.parse(event.target.dataset.product);
+    
+                        // Retrieve existing cart from localStorage
+                        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+                        // Add new product to cart
+                        cart.push({
+                            name: productData.productName,
+                            image: productData.imageBase64,
+                            price: productData.price,
+                        });
+    
+                        // Save updated cart to localStorage
+                        localStorage.setItem('cart', JSON.stringify(cart));
+    
+                        alert(`${productData.productName} has been added to your cart!`);
+                    });
+                });
             })
             .catch(error => console.error('Error fetching products:', error));
     </script>

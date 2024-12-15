@@ -1,0 +1,164 @@
+/* General Reset */
+body, h1, h2, p, ul, li, label, input, button, footer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #444;
+    color: #fff;
+    padding: 1rem;
+}
+
+.nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav .links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav .links li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#checkout-items {
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 600px;
+}
+
+.checkout-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+/* Form Centering */
+.form-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 2rem auto;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: #444;
+}
+
+.input-line {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.input-line label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #666;
+}
+
+.input-line input {
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.input-line input:focus {
+    border-color: #333;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.input-container {
+    display: flex;
+    gap: 1rem;
+}
+
+.input-container .input-line {
+    flex: 1;
+}
+
+#confirm-order-btn {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+#confirm-order-btn:hover {
+    background-color: #333;
+}
+
+footer{
+    height: 250px;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fa {
+    height: 10px;
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+  }
+  .fa:hover {
+    opacity: 0.7;
+  }
+  
+  .fa-facebook {
+    background: #3B5998;
+    color: white;
+  }
+  
+  .fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
+  .fa-instagram{
+    background: linear-gradient(purple, orange);
+    color: white;
+  }
+  

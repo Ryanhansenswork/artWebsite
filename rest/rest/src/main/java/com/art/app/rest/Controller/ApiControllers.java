@@ -1,6 +1,7 @@
 package com.art.app.rest.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,15 @@ public class ApiControllers
         return products;
         //return productsRepo.findAll();
     }
+  
+ 
+    /* 
+    @GetMapping("/login")
+    public String showLoginPage() {
+        return "login"; // Maps to src/main/resources/templates/login.html
+    }
+
+    */
     
    /*  @GetMapping("/products")
 public List<Products> getProducts() {
