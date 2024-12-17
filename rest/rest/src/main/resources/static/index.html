@@ -116,7 +116,6 @@
 
     </script>-->
     <script>
-        // Fetch from products table dynamically
         fetch('/products')
             .then(response => response.json())
             .then(data => {
@@ -134,13 +133,13 @@
                     productList.appendChild(listItem);
                 });
     
-                // Add to cart button functionality
+                // Add to cart button!!!!
                 const cartButtons = document.querySelectorAll('.add-to-cart');
                 cartButtons.forEach(button => {
                     button.addEventListener('click', (event) => {
                         const productData = JSON.parse(event.target.dataset.product);
     
-                        // Retrieve existing cart from localStorage
+                        // Retrieve existing cart
                         let cart = JSON.parse(localStorage.getItem('cart')) || [];
     
                         // Add new product to cart
@@ -150,7 +149,7 @@
                             price: productData.price,
                         });
     
-                        // Save updated cart to localStorage
+                        // Save updated cart
                         localStorage.setItem('cart', JSON.stringify(cart));
     
                         alert(`${productData.productName} has been added to your cart!`);

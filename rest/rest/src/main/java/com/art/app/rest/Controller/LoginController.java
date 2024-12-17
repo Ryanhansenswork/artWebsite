@@ -34,46 +34,20 @@ public class LoginController {
     return "checkout";
     }
 
-   /*  @Autowired
-    OrdersService ordersService;
-
-    @GetMapping("/checkout")
-    public String showCheckoutPage() {
-    return "checkout";
-}
-    @PostMapping("/store")
-    public Orders saveOrder(@RequestBody Orders orders){
-        return ordersService.create(orders);
-    }*/
-     /*@PostMapping("/login")
-    public String loginSuccess() {
-        return "redirect:/admin";
-    }*/
-     /*  @Autowired
+    @Autowired
     private MyAppUserService userService;
     @PostMapping("/login")
-public String login(String username, String password) {
-    Optional<MyAppUser> user = userService.findByUsername(username);
-
-    if (user.isPresent() && user.get().getPassword().equals(password)) {
-        return "redirect:/admin"; // Successful login
-    }
-    return "redirect:/login?error"; // Login failed
-}*/
-@Autowired
-    private MyAppUserService userService;
-@PostMapping("/login")
-public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
+    public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
     if (username == null || password == null) {
-        return "redirect:/login?error=missing_credentials"; // Handle empty input case
+        return "redirect:/login?error=missing_credentials"; 
     }
 
     Optional<MyAppUser> user = userService.findByUsername(username);
 
     if (user.isPresent() && user.get().getPassword().equals(password)) {
-        return "redirect:/admin"; // Successful login
+        return "redirect:/admin"; 
     }
-    return "redirect:/login?error=invalid_credentials"; // Login failed
+    return "redirect:/login?error=invalid_credentials"; 
 }
 
 

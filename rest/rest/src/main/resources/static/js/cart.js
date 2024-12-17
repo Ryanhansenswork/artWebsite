@@ -10,7 +10,6 @@ function upadateCaseNumber(product, price, isIncreasing){
          }
         
         caseInput.value = caseNumber;
-    // update case total 
     const caseTotal = document.getElementById(product + '-total');
     caseTotal.innerText = caseNumber * price;
     calculateTotal();
@@ -41,22 +40,16 @@ function upadateCaseNumber(product, price, isIncreasing){
 
 
 document.getElementById('case-plus').addEventListener('click',function(){
-        // const caseInput = document.getElementById('case-number');
-        // const caseNumber = caseInput.value;
-        // caseInput.value = parseInt(caseNumber) + 1;
+
    upadateCaseNumber('case', 59 ,true);
 });
 
 document.getElementById('case-minus').addEventListener('click',function(){
-    // const caseInput = document.getElementById('case-number');
-//     const caseNumber = caseInput.value;
-//    if(caseInput.value > 1){
-//         caseInput.value = parseInt(caseNumber) - 1;
-//    }
+  
 upadateCaseNumber('case', 59, false);
 });
 
-// phone prcie update using add event linstner 
+
 document.getElementById('phone-plus').addEventListener('click',function(){
     upadateCaseNumber('phone',1219, true);
 });
@@ -95,10 +88,10 @@ function fetchCartItems() {
                 </tr>`;
             });
 
-            // Insert rows into the table
+           
             cartTable.innerHTML += cartRows;
 
-            // Add event listeners to "Remove" links
+           
             document.querySelectorAll(".remove-item").forEach(link => {
                 link.addEventListener("click", (e) => {
                     e.preventDefault();
@@ -117,7 +110,7 @@ function removeCartItem(cartId) {
     .then(response => {
         if (response.ok) {
             alert("Item removed from cart");
-            location.reload(); // Reload the page to reflect changes
+            location.reload(); 
         } else {
             throw new Error("Failed to remove item");
         }

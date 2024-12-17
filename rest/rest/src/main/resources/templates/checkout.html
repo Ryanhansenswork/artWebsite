@@ -104,40 +104,40 @@
         }
 
         document.getElementById('confirm-order-btn').addEventListener('click', (e) => {
-        e.preventDefault(); // Prevent form submission
+        e.preventDefault(); 
         
         // Gather form data
         const orderData = {
-            firstname: document.getElementById('firstname').value, // Replace with proper ids
+            firstname: document.getElementById('firstname').value, 
             lastname: document.getElementById('lastname').value, 
             email: document.getElementById('email').value, 
-            productname: cartData.map(item => item.name).join(", "), // Combine all product names
-            price: cartData.reduce((sum, item) => sum + item.price, 0), // Sum of all prices
+            productname: cartData.map(item => item.name).join(", "), 
+            price: cartData.reduce((sum, item) => sum + item.price, 0), 
             streetaddress: document.getElementById('streetaddress').value,
             city: document.getElementById('city').value,
             state: document.getElementById('state').value,
             postalcode: document.getElementById('postalcode').value
         };
 
-        // Send the order data to the backend API
+       
         fetch('/orders/store', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(orderData) // Send data as JSON
+            body: JSON.stringify(orderData) 
         })
         .then(response => response.json())
         .then(data => {
             alert('Order Confirmed!');
-            localStorage.removeItem('cartData'); // Clear the cart
-            window.location.href = '/index.html'; // Redirect to homepage
+            localStorage.removeItem('cartData'); 
+            window.location.href = '/index.html'; 
         })
         .catch(error => {
             console.error('Error:', error);
             alert('There was an issue completing your order. Please try again.');
         });
-        // Save to localStorage (append to existing orders)
+        
         const existingOrders = JSON.parse(localStorage.getItem('orders')) || [];
         existingOrders.push(orderData);
         localStorage.setItem('orders', JSON.stringify(existingOrders));

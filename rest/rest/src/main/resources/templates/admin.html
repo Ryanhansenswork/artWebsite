@@ -111,10 +111,8 @@
     </div>
 </body>
 <script>
-    // Load orders from localStorage
     const orders = JSON.parse(localStorage.getItem('orders')) || [];
 
-    // Populate the table
     const tbody = document.querySelector('table tbody');
     orders.forEach(order => {
         const tr = document.createElement('tr');

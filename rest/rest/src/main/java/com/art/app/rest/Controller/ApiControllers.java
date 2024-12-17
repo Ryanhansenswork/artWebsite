@@ -28,25 +28,7 @@ public class ApiControllers
         return products;
         //return productsRepo.findAll();
     }
-  
- 
-    /* 
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "login"; // Maps to src/main/resources/templates/login.html
-    }
 
-    */
-    
-   /*  @GetMapping("/products")
-public List<Products> getProducts() {
-    List<Products> products = productsRepo.findAll();
-    if (products.isEmpty()) {
-        // Handle no products case (Optional)
-        throw new ResourceNotFoundException("No products available.");
-    }
-    return products;
-}*/
 
     
 }

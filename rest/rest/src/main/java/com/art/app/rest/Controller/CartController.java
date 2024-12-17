@@ -28,7 +28,7 @@ public class CartController {
   
  
 
-    /*// REST API endpoint for cart items
+    /*
     @RestController
     @RequestMapping("/api/cart")
     public static class CartRestController {
